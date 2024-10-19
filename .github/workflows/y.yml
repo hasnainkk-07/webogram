@@ -3,12 +3,15 @@ name: Replace zhukov with hasnainkk-07
 on:
   push:
     branches:
-      - master  # Change this to your default branch if it's not 'main'
+      - master  # Change this to your default branch if it's not 'master'
+
+permissions:
+  contents: write  # This gives write access to the contents of the repository
 
 jobs:
   replace-text:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -22,7 +25,7 @@ jobs:
         run: |
           # Replace 'zhukov' with 'hasnainkk-07' in all files
           find . -type f -exec sed -i 's/zhukov/hasnainkk-07/g' {} +
-          
+
       - name: Commit changes
         run: |
           git config --local user.name "hasnainkk-07"
