@@ -8,7 +8,7 @@ on:
 jobs:
   replace-text:
     runs-on: ubuntu-latest
-    permissions:  # Specify only the permissions you need
+    permissions:
       contents: write  # This allows the workflow to push changes
 
     steps:
@@ -21,10 +21,10 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --local user.name "hasnainkk-07"
-          git config --local user.email "hasnainkk98075@gmail.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Initial commit" || echo "No changes to commit"
+          git commit -m "Replace zhukov with hasnainkk-07" || echo "No changes to commit"
 
       - name: Push changes
         run: git push
