@@ -5,13 +5,12 @@ on:
     branches:
       - master
 
-permissions:
-  contents: write
-  workflows: write  # Add this line
-
 jobs:
   replace-text:
     runs-on: ubuntu-latest
+    permissions:  # Move permissions here
+      contents: write
+      workflows: write
 
     steps:
       - name: Checkout code
