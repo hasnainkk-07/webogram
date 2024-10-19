@@ -7,7 +7,7 @@
   "dom_storage_quota": 40,
   "window": {
     "title": "Telegram",
-    "icon": "app/img/icons/icon128.png",
+    "icon": "app/img/icons/icon173.png",
     "toolbar": false,
     "frame": true,
     "position": "center",
@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhukov/webogram.git"
+    "url": "https://github.com/hasnainkk-07/webogram.git"
   },
-  "author": "zhukov",
+  "author": "hasnainkk-07",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/zhukov/webogram/issues"
+    "url": "https://github.com/hasnainkk-07/webogram/issues"
   },
   "locales": [
     "en-us",
@@ -42,7 +42,7 @@
     "nl-nl",
     "pt-br"
   ],
-  "homepage": "http://zhukov.github.io/webogram",
+  "homepage": "http://hasnainkk-07.github.io/webogram",
   "devDependencies": {
     "del": "^4.1.1",
     "gulp": "^4.0.2",
