@@ -1,0 +1,39 @@
+name: Replace zhukov with hasnainkk-07
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if it's not 'main'
+
+jobs:
+  replace-text:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install  # Adjust if you have specific dependencies
+
+      - name: Replace text in JavaScript files
+        run: |
+          for file in $(find . -name '*.js'); do
+            sed -i 's/zhukov/hasnainkk-07/g' "$file"
+            echo "Updated $file"
+          done
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "hasnainkk-07"
+          git config --local user.email "hasnainkk98075@gmail.com"
+          git add .
+          git commit -m "Automated text replacement from zhukov to hasnainkk-07" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
