@@ -1,27 +1,33 @@
-name: Replace zhukov with hasnainkk-07
+name: Replace Zhukov with hasnainkk-07
 
 on:
   push:
     branches:
-      - master
+      - master  # Trigger this workflow when there's a push to the main branch
+  workflow_dispatch:  # Allows for manual triggering of the workflow via GitHub UI
+  schedule:
+    - cron: "0 0 * * *"  # This will run the action daily at midnight UTC
 
 jobs:
-  replace-text:
+  replace:
     runs-on: ubuntu-latest
-    permissions:  # Specify only the permissions you need
-      contents: write  # This allows the workflow to push changes
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Replace text in all files
-        run: |
-          find . -type f -exec sed -i 's/zhukov/hasnainkk-07/g' {} +
+    - name: Set up Git
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
 
-      - name: Commit changes
-        run: |
-          git config --local user.name "hasnainkk-07"
-          git config --local user.email "hasnainkk98075@gmail.com"
-          git add .
-          git commit -m "Initial commit" || echo "No changes to commit"
+    - name: Replace Zhukov with hasnainkk-07
+      run: |
+        # Replace all occurrences of 'Zhukov' with 'hasnainkk-07'
+        find . -type f -exec sed -i 's/Zhukov/hasnainkk-07/g' {} +
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        git commit -m "Replaced Zhukov with hasnainkk-07"
+        git push origin master
