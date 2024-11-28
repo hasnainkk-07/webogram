@@ -29,5 +29,5 @@ jobs:
     - name: Commit and push changes
       run: |
         git add .
-        git commit -m "Replaced Zhukov with hasnainkk-07"
+        git commit -m "Initial commit"
         git push origin master
